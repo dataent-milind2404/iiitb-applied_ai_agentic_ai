@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IIIT Bangalore and upGrad: University Collaboration</title>
+<!--
+  HOW TO EDIT THIS PAGE
+  1. Every piece of text you still need to replace sits inside square brackets, for example [Programme name].
+     Press Ctrl+F (Cmd+F on a Mac) and search for "[" to find them all.
+  2. Each section starts with a comment such as  SECTION 01: TEAM STRUCTURE  so you can jump straight to it.
+  3. To add another person, step, row or link, copy one existing block and paste it directly below.
+  4. Colours and fonts are set once, in the STYLE block, under ":root".
+  5. Save the file, upload it to GitHub, and the live site updates in a minute or two.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* ===== COLOURS AND FONTS (change them here, once) ===== */
+:root {
+  --bg: #F6F7F9;
+  --surface: #FFFFFF;
+  --ink: #12233F;
+  --text: #2A3547;
+  --muted: #5E6A7D;
+  --rule: #DCE1E8;
+  --accent: #1F5E8C;
+  --accent-soft: #E6EEF5;
+  --warn: #8A5200;
+  --warn-soft: #FBF1DF;
+  --ok: #1E6B45;
+  --ok-soft: #E3F1E8;
+  --no: #A3302A;
+  --no-soft: #F8E6E4;
+  --ph: #FFF3C4;
+  --ph-line: #C99A00;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1522; --surface: #151F30; --ink: #EEF2F8; --text: #D3DAE6; --muted: #95A1B5;
+    --rule: #26334A; --accent: #7DB3E0; --accent-soft: #1A2C44; --warn: #E8B35A; --warn-soft: #2E2414;
+    --ok: #72C79A; --ok-soft: #15291F; --no: #EE8A82; --no-soft: #331A18; --ph: #3A3110; --ph-line: #D8B23A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1522; --surface: #151F30; --ink: #EEF2F8; --text: #D3DAE6; --muted: #95A1B5;
+  --rule: #26334A; --accent: #7DB3E0; --accent-soft: #1A2C44; --warn: #E8B35A; --warn-soft: #2E2414;
+  --ok: #72C79A; --ok-soft: #15291F; --no: #EE8A82; --no-soft: #331A18; --ph: #3A3110; --ph-line: #D8B23A;
+  color-scheme: dark;
+}
+
+/* ===== BASICS ===== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 600; line-height: 1.2; margin: 0; }
+p { margin: 0 0 12px; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+img { max-width: 100%; }
+
+/* Placeholder highlight: anything in this style still needs real content */
+.ph { background: var(--ph); border-bottom: 1px dashed var(--ph-line); padding: 0 .2em; border-radius: 2px; }
+
+/* ===== PAGE LAYOUT: side menu on the left, content on the right ===== */
+.layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 100vh; }
+.sidebar { position: sticky; top: 0; height: 100vh; overflow-y: auto; background: var(--surface); border-right: 1px solid var(--rule); padding: 28px 22px; display: flex; flex-direction: column; gap: 26px; }
+.brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.brand small { display: block; font-family: var(--sans); font-weight: 400; font-size: .86rem; color: var(--muted); margin-top: 6px; }
+.nav-title { font-family: var(--sans); font-size: .82rem; font-weight: 600; color: var(--muted); margin: 0 0 6px 10px; }
+.nav { list-style: none; margin: 0; padding: 0; }
+.nav a { display: flex; gap: 10px; padding: 6px 10px; border-radius: 6px; color: var(--text); text-decoration: none; font-size: .93rem; line-height: 1.4; }
+.nav a .n { color: var(--muted); min-width: 1.6em; font-variant-numeric: tabular-nums; }
+.nav a:hover { background: var(--accent-soft); }
+.nav a.is-active { background: var(--accent-soft); color: var(--ink); font-weight: 500; }
+.side-foot { margin-top: auto; border-top: 1px solid var(--rule); padding-top: 16px; font-size: .88rem; }
+.side-foot p { margin: 0 0 4px; }
+.theme-btn { margin-top: 14px; font: inherit; font-size: .86rem; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+.theme-btn:hover { background: var(--accent-soft); }
+
+.topbar { display: none; }
+main { padding: 0 clamp(20px, 5vw, 72px) 96px; }
+.wrap { max-width: 900px; }
+
+/* Mobile: the side menu slides in from a button at the top */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .topbar { display: flex; position: sticky; top: 0; z-index: 20; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; background: var(--surface); border-bottom: 1px solid var(--rule); }
+  .topbar strong { font-family: var(--serif); color: var(--ink); }
+  .menu-btn { font: inherit; font-size: .9rem; color: var(--text); background: transparent; border: 1px solid var(--rule); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+  .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: min(300px, 86vw); height: auto; z-index: 30; transform: translateX(-100%); transition: transform .2s ease; }
+  .sidebar.is-open { transform: none; box-shadow: 0 0 0 100vmax rgba(10, 20, 35, .45); }
+}
+@media (prefers-reduced-motion: reduce) { .sidebar { transition: none; } }
+
+/* ===== HERO ===== */
+.hero { padding: clamp(48px, 9vw, 104px) 0 48px; border-bottom: 1px solid var(--rule); }
+.hero h1 { font-size: clamp(2.4rem, 6.4vw, 4.4rem); letter-spacing: -.01em; margin-bottom: 18px; }
+.hero h1 .x { color: var(--muted); font-weight: 500; padding: 0 .12em; }
+.hero .programme { font-size: clamp(1.15rem, 2.4vw, 1.45rem); color: var(--ink); font-weight: 500; max-width: 34ch; margin-bottom: 8px; }
+.hero .meeting { color: var(--muted); margin-bottom: 36px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 0; border-top: 1px solid var(--rule); }
+.facts div { padding: 14px 16px 0 0; }
+.facts dt { font-size: .85rem; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-family: var(--serif); font-size: 1.5rem; color: var(--ink); font-weight: 600; }
+
+.draft-note { margin-top: 28px; padding: 10px 14px; background: var(--warn-soft); color: var(--warn); border-radius: 6px; font-size: .92rem; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 64px 0 8px; }
+.section-head { display: grid; grid-template-columns: 3.2rem 1fr; gap: 6px 14px; margin-bottom: 28px; }
+.section-no { font-family: var(--serif); font-size: 1.9rem; color: var(--muted); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.section-head h2 { font-size: clamp(1.6rem, 3.2vw, 2.1rem); margin-bottom: 8px; }
+.section-head p { color: var(--muted); max-width: 62ch; margin: 0; }
+h3 { font-size: 1.15rem; margin: 28px 0 12px; }
+.lead-link { font-size: .95rem; margin-bottom: 18px; }
+
+/* Agenda */
+.agenda { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); column-gap: 32px; }
+.agenda li { border-top: 1px solid var(--rule); }
+.agenda a { display: grid; grid-template-columns: 2.2rem 1fr; gap: 10px; padding: 14px 0; text-decoration: none; color: var(--text); }
+.agenda .n { font-family: var(--serif); color: var(--muted); font-size: 1.1rem; }
+.agenda strong { display: block; color: var(--ink); font-weight: 600; }
+.agenda span.d { font-size: .9rem; color: var(--muted); }
+.agenda a:hover strong { color: var(--accent); }
+
+/* Team */
+.people { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); column-gap: 32px; }
+.person { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 16px 0; border-top: 1px solid var(--rule); }
+.avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-weight: 600; font-size: .95rem; overflow: hidden; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.person .name { font-weight: 600; color: var(--ink); margin: 0; }
+.person .role { font-size: .9rem; color: var(--accent); margin: 0 0 6px; }
+.person .desc { font-size: .92rem; margin: 0; }
+
+/* Learner journey: a vertical timeline */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps > li { position: relative; padding: 0 0 26px 52px; counter-increment: step; }
+.steps > li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; font-weight: 600; font-size: .9rem; background: var(--bg); }
+.steps > li::after { content: ""; position: absolute; left: 17px; top: 36px; bottom: 2px; width: 1.5px; background: var(--rule); }
+.steps > li:last-child::after { display: none; }
+.steps strong { display: block; color: var(--ink); font-size: 1.02rem; margin: 4px 0 4px; }
+.steps p { margin: 0; font-size: .95rem; }
+.tat { display: inline-block; margin-top: 6px; font-size: .82rem; font-weight: 500; color: var(--warn); background: var(--warn-soft); padding: 2px 8px; border-radius: 4px; }
+
+details.checklist { border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); margin-top: 8px; }
+details.checklist summary { cursor: pointer; padding: 14px 18px; font-weight: 600; color: var(--ink); }
+.checklist-body { padding: 0 18px 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px 28px; }
+.checklist-body h4 { margin: 10px 0 6px; font-size: .95rem; color: var(--ink); }
+.checklist-body ul { margin: 0; padding-left: 18px; font-size: .92rem; }
+.checklist-body li { margin-bottom: 6px; }
+
+/* Demographics */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin: 0 0 8px; border-top: 1px solid var(--rule); }
+.stats div { padding: 14px 16px 0 0; }
+.stats dt { font-size: .85rem; color: var(--muted); }
+.stats dd { margin: 2px 0 0; font-family: var(--serif); font-size: 1.6rem; color: var(--ink); font-weight: 600; }
+.two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 40px; }
+.bars { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.bars li { display: grid; grid-template-columns: 9.5rem 1fr 3.4rem; align-items: center; gap: 12px; font-size: .92rem; }
+.bar { height: 10px; border-radius: 5px; background: var(--accent-soft); overflow: hidden; }
+.bar i { display: block; height: 100%; width: calc(var(--pct) * 1%); background: var(--accent); border-radius: 5px; }
+.bars .v { text-align: right; font-variant-numeric: tabular-nums; }
+.source { font-size: .85rem; color: var(--muted); margin-top: 18px; }
+
+/* Plain lists with rules */
+.ruled { list-style: none; margin: 0; padding: 0; }
+.ruled li { padding: 10px 0; border-top: 1px solid var(--rule); font-size: .95rem; }
+.ruled li b { color: var(--ink); font-weight: 600; }
+
+.note { margin-top: 22px; padding: 12px 16px; border-left: 3px solid var(--warn); background: var(--warn-soft); border-radius: 0 6px 6px 0; font-size: .93rem; }
+.note p:last-child { margin: 0; }
+
+/* Expected queries */
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; padding: 13px 0; font-weight: 500; color: var(--ink); }
+.faq details p { padding: 0 0 14px 0; margin: 0; font-size: .95rem; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .94rem; min-width: 520px; }
+th, td { text-align: left; padding: 11px 14px 11px 0; border-top: 1px solid var(--rule); vertical-align: top; }
+th { font-size: .85rem; font-weight: 600; color: var(--muted); border-top: 0; }
+td:first-child { white-space: nowrap; color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Do's and don'ts */
+.dodont { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.dodont > div { border-radius: 8px; padding: 18px 20px; }
+.dodont .do { background: var(--ok-soft); }
+.dodont .dont { background: var(--no-soft); }
+.dodont h3 { margin: 0 0 10px; font-size: 1.05rem; }
+.dodont .do h3 { color: var(--ok); }
+.dodont .dont h3 { color: var(--no); }
+.dodont ul { margin: 0; padding-left: 18px; font-size: .94rem; }
+.dodont li { margin-bottom: 8px; }
+
+.btn { display: inline-block; text-decoration: none; background: var(--accent); color: var(--surface); padding: 10px 18px; border-radius: 6px; font-weight: 500; }
+.btn:hover { filter: brightness(1.08); }
+
+/* Footer */
+footer { margin-top: 80px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: .88rem; color: var(--muted); }
+footer p { margin: 0 0 4px; }
+</style>
+</head>
+<body>
+
+<!-- Top bar: only shows on phones -->
+<div class="topbar">
+  <strong>IIIT Bangalore × upGrad</strong>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sidebar">Sections</button>
+</div>
+
+<div class="layout">
+
+  <!-- ===== SIDE MENU ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      IIIT Bangalore × upGrad
+      <small><span class="ph">[Programme name]</span></small>
+    </div>
+
+    <nav aria-label="Sections">
+      <p class="nav-title">Overview</p>
+      <ul class="nav">
+        <li><a href="#hero"><span class="n"></span>Home</a></li>
+        <li><a href="#agenda"><span class="n">00</span>Agenda</a></li>
+      </ul>
+      <p class="nav-title" style="margin-top:18px">Sections</p>
+      <ul class="nav">
+        <li><a href="#structure"><span class="n">01</span>Team structure</a></li>
+        <li><a href="#journey"><span class="n">02</span>Learner journey</a></li>
+        <li><a href="#demographics"><span class="n">03</span>Learner demographics</a></li>
+        <li><a href="#queries"><span class="n">04</span>Query handling</a></li>
+        <li><a href="#expected"><span class="n">05</span>Expected queries</a></li>
+        <li><a href="#calendar"><span class="n">06</span>Open queries and calendar</a></li>
+        <li><a href="#sop"><span class="n">07</span>Live session guidelines</a></li>
+        <li><a href="#demo"><span class="n">08</span>Live session demo</a></li>
+        <li><a href="#webinar"><span class="n">09</span>Welcome webinar</a></li>
+        <li><a href="#resources"><span class="n">10</span>Resources and links</a></li>
+      </ul>
+    </nav>
+
+    <div class="side-foot">
+      <p><b>Student support</b></p>
+      <p><a href="mailto:studentsupport@upgrad.com">studentsupport@upgrad.com</a></p>
+      <p><a href="tel:18002102020">1800-210-2020</a> (toll free)</p>
+      <button class="theme-btn" id="themeBtn" type="button">Switch to dark</button>
+    </div>
+  </aside>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ===== HERO ===== -->
+      <header class="hero" id="hero">
+        <h1>IIIT Bangalore <span class="x">×</span> upGrad</h1>
+        <p class="programme"><span class="ph">[Full programme name, for example Executive PG Programme in ...]</span></p>
+        <p class="meeting">University collaboration meeting, <span class="ph">[Month Year]</span></p>
+        <dl class="facts">
+          <div><dt>Duration</dt><dd><span class="ph">[x] months</span></dd></div>
+          <div><dt>Delivery</dt><dd><span class="ph">[Live / blended]</span></dd></div>
+          <div><dt>Live sessions</dt><dd><span class="ph">[x]</span></dd></div>
+          <div><dt>Batch start</dt><dd><span class="ph">[Date]</span></dd></div>
+        </dl>
+        <!-- DRAFT NOTE: delete this whole <div> once every placeholder is filled -->
+        <div class="draft-note">Draft. Text in <span class="ph">[highlighted brackets]</span> still needs real content.</div>
+      </header>
+
+      <!-- ===== SECTION 00: AGENDA ===== -->
+      <section class="section" id="agenda">
+        <div class="section-head">
+          <span class="section-no">00</span>
+          <div>
+            <h2>Agenda</h2>
+            <p>Ten items for the IIIT Bangalore collaboration meeting, in the order we will take them.</p>
+          </div>
+        </div>
+        <ol class="agenda">
+          <li><a href="#structure"><span class="n">01</span><span><strong>Team structure</strong><span class="d">Roles, responsibilities and points of contact</span></span></a></li>
+          <li><a href="#journey"><span class="n">02</span><span><strong>Learner journey</strong><span class="d">From first enquiry to programme start</span></span></a></li>
+          <li><a href="#demographics"><span class="n">03</span><span><strong>Learner demographics</strong><span class="d">Who is in the cohort</span></span></a></li>
+          <li><a href="#queries"><span class="n">04</span><span><strong>Query and grievance handling</strong><span class="d">Channels, escalation levels and response times</span></span></a></li>
+          <li><a href="#expected"><span class="n">05</span><span><strong>Expected queries</strong><span class="d">Questions likely in the welcome webinar and live sessions</span></span></a></li>
+          <li><a href="#calendar"><span class="n">06</span><span><strong>Open queries and calendar</strong><span class="d">Pending questions and key programme dates</span></span></a></li>
+          <li><a href="#sop"><span class="n">07</span><span><strong>Live session guidelines</strong><span class="d">Do's and don'ts for faculty</span></span></a></li>
+          <li><a href="#demo"><span class="n">08</span><span><strong>Live session demo</strong><span class="d">A recorded walkthrough of a session</span></span></a></li>
+          <li><a href="#webinar"><span class="n">09</span><span><strong>Welcome webinar</strong><span class="d">Running order and learner invite</span></span></a></li>
+          <li><a href="#resources"><span class="n">10</span><span><strong>Resources and links</strong><span class="d">Platforms, documents and support contacts</span></span></a></li>
+        </ol>
+      </section>
+
+      <!-- ===== SECTION 01: TEAM STRUCTURE ===== -->
+      <!-- To add a person: copy one <li class="person"> ... </li> block and paste it below.
+           To use a photo: replace the initials inside <span class="avatar"> with <img src="photo.jpg" alt="Full name">
+           and upload photo.jpg to the same GitHub repository. -->
+      <section class="section" id="structure">
+        <div class="section-head">
+          <span class="section-no">01</span>
+          <div>
+            <h2>Team structure</h2>
+            <p>Roles, responsibilities and points of contact for the IIIT Bangalore programme.</p>
+          </div>
+        </div>
+
+        <h3>Leadership</h3>
+        <ul class="people">
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role"><span class="ph">[Role title]</span></p>
+              <p class="desc"><span class="ph">[One line on what this person owns for the partnership.]</span></p>
+            </div>
+          </li>
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role"><span class="ph">[Role title]</span></p>
+              <p class="desc"><span class="ph">[One line on what this person owns for the partnership.]</span></p>
+            </div>
+          </li>
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role"><span class="ph">[Role title]</span></p>
+              <p class="desc"><span class="ph">[One line on what this person owns for the partnership.]</span></p>
+            </div>
+          </li>
+        </ul>
+
+        <h3>Programme support and delivery</h3>
+        <ul class="people">
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role">Student success</p>
+              <p class="desc">Leads the programme coordination team and makes sure learners get timely support throughout the programme.</p>
+            </div>
+          </li>
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role">Session moderator</p>
+              <p class="desc">Runs live sessions end to end: faculty coordination, scheduling, moderation, escalations and post-session feedback.</p>
+            </div>
+          </li>
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role">Session moderator</p>
+              <p class="desc">Runs live sessions end to end: faculty coordination, scheduling, moderation, escalations and post-session feedback.</p>
+            </div>
+          </li>
+          <li class="person">
+            <span class="avatar" aria-hidden="true">XX</span>
+            <div>
+              <p class="name"><span class="ph">[Full name]</span></p>
+              <p class="role">Product and MIS</p>
+              <p class="desc">Supports faculty on the platform, fixes access issues and works with the product team on bugs and improvements.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ===== SECTION 02: LEARNER JOURNEY ===== -->
+      <!-- The numbers 1 to 9 are added automatically. To add a step, copy one <li> ... </li> block. -->
+      <section class="section" id="journey">
+        <div class="section-head">
+          <span class="section-no">02</span>
+          <div>
+            <h2>Learner journey</h2>
+            <p>The nine stages a learner moves through, from first enquiry to the start of the programme.</p>
+          </div>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <strong>Lead capture and assignment</strong>
+            <p>Enquiries arrive from the website, referrals and marketing campaigns. Each one is assigned to an admissions counsellor.</p>
+          </li>
+          <li>
+            <strong>First counselling call</strong>
+            <p>Quick first contact, understanding the learner's background and goals, and recommending the right programme.</p>
+          </li>
+          <li>
+            <strong>Second counselling call</strong>
+            <p>Conversations with alumni, coaches or faculty where useful, and answers to remaining concerns.</p>
+          </li>
+          <li>
+            <strong>Application and block payment</strong>
+            <p>Application, test or interview where IIIT Bangalore requires one, shortlisting, offer letter and block payment.</p>
+          </li>
+          <li>
+            <strong>Programme access</strong>
+            <p>Automated emails confirm the payment and explain how to log in to the learning platform.</p>
+          </li>
+          <li>
+            <strong>Balance payment</strong>
+            <p>Paid directly by card, net banking or UPI, or through finance partners offering no-cost and standard EMI.</p>
+            <span class="tat">Turnaround: <span class="ph">[7 days]</span></span>
+          </li>
+          <li>
+            <strong>Document submission</strong>
+            <p>Documents as listed in IIIT Bangalore's guidelines: <span class="ph">[list or link]</span>.</p>
+            <span class="tat">Turnaround: <span class="ph">[7 days]</span></span>
+          </li>
+          <li>
+            <strong>Onboarding call</strong>
+            <p>Welcome call that confirms programme details and answers first questions.</p>
+            <span class="tat">Within <span class="ph">[3 days]</span> of block payment</span>
+          </li>
+          <li>
+            <strong>Post enrolment</strong>
+            <p>Cohort assignment, the welcome webinar, and access to recorded and live content.</p>
+          </li>
+        </ol>
+
+        <details class="checklist">
+          <summary>Onboarding call checklist</summary>
+          <div class="checklist-body">
+            <div>
+              <h4>Welcome and basics</h4>
+              <ul>
+                <li>Confirm the learner's identity</li>
+                <li>Introduce the onboarding team; the call takes 10 to 15 minutes</li>
+                <li>Ask what the learner wants: upskilling or a career move</li>
+                <li>Confirm programme name, duration, batch start date, delivery mode and language</li>
+                <li>Documents due within <span class="ph">[7 days]</span> of block payment, or the learner may be deferred</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Platform and structure</h4>
+              <ul>
+                <li>Log in to the learning platform and the mobile app</li>
+                <li>Preparatory course: recommended, not credit-bearing</li>
+                <li>Structure: <span class="ph">[x]</span> modules, <span class="ph">[x]</span> projects, one capstone</li>
+                <li>Live sessions: <span class="ph">[day, time IST]</span>, recordings available after class</li>
+                <li>Minimum attendance: <span class="ph">[x]%</span></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Evaluation and close</h4>
+              <ul>
+                <li>Assessments: <span class="ph">[quizzes, projects, case studies, exams]</span></li>
+                <li>Passing criteria: <span class="ph">[x]%</span> overall; deadlines are firm</li>
+                <li>Weekly time commitment: <span class="ph">[x to y]</span> hours</li>
+                <li>Career services and certificate details</li>
+                <li>upGrad does not guarantee placement or salary</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+        <p class="lead-link" style="margin-top:16px">Recording of the pre-enrolment journey: <a href="#"><span class="ph">[link]</span></a></p>
+      </section>
+
+      <!-- ===== SECTION 03: LEARNER DEMOGRAPHICS ===== -->
+      <!-- Bar length comes from --pct. Change --pct:20 to the real share, for example --pct:29.4,
+           and change the number in the last column to match. -->
+      <section class="section" id="demographics">
+        <div class="section-head">
+          <span class="section-no">03</span>
+          <div>
+            <h2>Learner demographics</h2>
+            <p>Profile of the <span class="ph">[batch name]</span> cohort.</p>
+          </div>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Learners enrolled</dt><dd><span class="ph">[x]</span></dd></div>
+          <div><dt>Average work experience</dt><dd><span class="ph">[x] yrs</span></dd></div>
+          <div><dt>Women</dt><dd><span class="ph">[x]%</span></dd></div>
+          <div><dt>Based in India</dt><dd><span class="ph">[x]%</span></dd></div>
+        </dl>
+
+        <div class="two-col">
+          <div>
+            <h3>Work experience</h3>
+            <ul class="bars">
+              <li><span>0 to 5 years</span><span class="bar"><i style="--pct:20"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>6 to 10 years</span><span class="bar"><i style="--pct:20"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>11 to 15 years</span><span class="bar"><i style="--pct:20"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>16 to 20 years</span><span class="bar"><i style="--pct:20"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>Over 20 years</span><span class="bar"><i style="--pct:20"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Highest education</h3>
+            <ul class="bars">
+              <li><span>B.Tech / B.E.</span><span class="bar"><i style="--pct:25"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>MCA / M.Tech / MSc</span><span class="bar"><i style="--pct:25"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>MBA / PGDM</span><span class="bar"><i style="--pct:25"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+              <li><span>Other</span><span class="bar"><i style="--pct:25"></i></span><span class="v"><span class="ph">[x]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="source">Source: enrolment records as of <span class="ph">[date]</span>.</p>
+      </section>
+
+      <!-- ===== SECTION 04: QUERY AND GRIEVANCE HANDLING ===== -->
+      <section class="section" id="queries">
+        <div class="section-head">
+          <span class="section-no">04</span>
+          <div>
+            <h2>Query and grievance handling</h2>
+            <p>Where learners raise questions, how issues escalate, and how quickly we respond.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <h3>Query channels</h3>
+            <ul class="ruled">
+              <li><b>Support email:</b> <a href="mailto:studentsupport@upgrad.com">studentsupport@upgrad.com</a></li>
+              <li><b>Programme manager:</b> <span class="ph">[Name, channel and handle]</span></li>
+              <li><b>Discussion forum:</b> for academic questions, answered by teaching assistants and peers</li>
+              <li><b>Doubt resolution sessions:</b> <span class="ph">[frequency]</span></li>
+              <li><b>Helpline:</b> <a href="tel:18002102020">1800-210-2020</a> (toll free)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Escalation levels</h3>
+            <ul class="ruled">
+              <li><b>Level 1:</b> <a href="mailto:escalations.l1@upgrad.com">escalations.l1@upgrad.com</a></li>
+              <li><b>Level 2:</b> <a href="mailto:escalations.l2@upgrad.com">escalations.l2@upgrad.com</a></li>
+              <li><b>Level 3:</b> <a href="mailto:escalations.l3@upgrad.com">escalations.l3@upgrad.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          <p>Support email replies within <span class="ph">[24 to 48]</span> working hours. Forum posts need the right tag; untagged posts may be treated as peer discussion and answered later.</p>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 05: EXPECTED QUERIES ===== -->
+      <!-- Each question opens to show the agreed answer. Copy a <details> block to add one. -->
+      <section class="section" id="expected">
+        <div class="section-head">
+          <span class="section-no">05</span>
+          <div>
+            <h2>Expected queries</h2>
+            <p>Questions learners are likely to ask in the welcome webinar and early live sessions, with the answers we plan to give.</p>
+          </div>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Will live sessions be recorded, and when can we watch them?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary>How do we get one-to-one help with doubts?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary>What happens if I miss a live session?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary>Will we get IIIT Bangalore alumni status?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary>Can we use the IIIT Bangalore library or visit the campus?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary>Which tools and software do we need?</summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+          <details>
+            <summary><span class="ph">[Programme-specific question]</span></summary>
+            <p><span class="ph">[Agreed answer]</span></p>
+          </details>
+        </div>
+        <div class="note"><p>In live sessions, answer questions promptly in chat or the Q&amp;A window.</p></div>
+      </section>
+
+      <!-- ===== SECTION 06: OPEN QUERIES AND CALENDAR ===== -->
+      <section class="section" id="calendar">
+        <div class="section-head">
+          <span class="section-no">06</span>
+          <div>
+            <h2>Open queries and calendar</h2>
+            <p>Questions still waiting on a decision, and the dates learners will see.</p>
+          </div>
+        </div>
+        <p class="lead-link">Full list of open questions: <a href="#"><span class="ph">[link to questions sheet]</span></a></p>
+
+        <!-- Keep every date in this table only. If a date changes, change it here and in the invite email. -->
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Event</th><th>What happens</th></tr></thead>
+            <tbody>
+              <tr><td><span class="ph">[Day, date]</span></td><td>Welcome webinar</td><td>Orientation and introductions</td></tr>
+              <tr><td><span class="ph">[Day, date]</span></td><td>Batch launch</td><td>Official batch start</td></tr>
+              <tr><td><span class="ph">[Day, date]</span></td><td>First live session</td><td>Academic sessions begin</td></tr>
+              <tr><td><span class="ph">[Every day]</span></td><td>Live sessions</td><td><span class="ph">[Time]</span> IST</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 07: LIVE SESSION GUIDELINES ===== -->
+      <section class="section" id="sop">
+        <div class="section-head">
+          <span class="section-no">07</span>
+          <div>
+            <h2>Live session guidelines</h2>
+            <p>Suggested do's and don'ts for faculty taking live sessions.</p>
+          </div>
+        </div>
+        <p class="lead-link">Full SOP document: <a href="#"><span class="ph">[link]</span></a></p>
+
+        <div class="dodont">
+          <div class="do">
+            <h3>Do</h3>
+            <ul>
+              <li>Join from the Zoom desktop app, which is more stable and has all host features</li>
+              <li>Check audio, video and screen sharing 5 to 10 minutes before the start</li>
+              <li>Use a wired connection or reliable high-speed Wi-Fi</li>
+              <li>Keep background noise low</li>
+              <li>Let the moderator manage chat and incoming questions</li>
+            </ul>
+          </div>
+          <div class="dont">
+            <h3>Don't</h3>
+            <ul>
+              <li>End the meeting yourself; the upGrad team closes the session</li>
+              <li>Switch networks or devices mid-session unless you have to</li>
+              <li>Run past the scheduled end without telling the moderator</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SECTION 08: LIVE SESSION DEMO ===== -->
+      <section class="section" id="demo">
+        <div class="section-head">
+          <span class="section-no">08</span>
+          <div>
+            <h2>Live session demo</h2>
+            <p>The instructor's view of a live session on Zoom with the learning platform.</p>
+          </div>
+        </div>
+        <p><a class="btn" href="#">Watch the demo recording</a> <span class="ph">[add link in href]</span></p>
+        <ul class="ruled" style="margin-top:18px">
+          <li>Full Zoom host controls and attendee management</li>
+          <li>Attendance, resources and recordings sync to the learning platform</li>
+          <li>Moderated chat, with a Q&amp;A window in the last <span class="ph">[15]</span> minutes</li>
+          <li>Recording uploaded to the platform within <span class="ph">[2]</span> hours</li>
+        </ul>
+      </section>
+
+      <!-- ===== SECTION 09: WELCOME WEBINAR ===== -->
+      <section class="section" id="webinar">
+        <div class="section-head">
+          <span class="section-no">09</span>
+          <div>
+            <h2>Welcome webinar</h2>
+            <p>Running order for the first session, and the invite learners receive.</p>
+          </div>
+        </div>
+        <p class="lead-link">Webinar slides: <a href="#"><span class="ph">[link]</span></a></p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Time</th><th>Segment</th><th>What happens</th><th>Led by</th></tr></thead>
+            <tbody>
+              <tr><td>0 to 5 min</td><td>Welcome</td><td>Host introduces IIIT Bangalore faculty and the programme team</td><td>upGrad host</td></tr>
+              <tr><td>5 to 15 min</td><td>Faculty address</td><td>Expectations, course approach and learning outcomes</td><td>IIIT Bangalore faculty</td></tr>
+              <tr><td>15 to 30 min</td><td>Platform walkthrough</td><td>Live tour of modules, resources, live session access and the app</td><td>Programme team</td></tr>
+              <tr><td>30 to 40 min</td><td>Programme structure</td><td>Modules, projects, capstone, attendance, evaluation and deadlines</td><td>Programme manager</td></tr>
+              <tr><td>40 to 50 min</td><td>Career services</td><td>Coaching timeline and career support</td><td>Career services</td></tr>
+              <tr><td>50 to 60 min</td><td>Questions and close</td><td>Open questions and next steps</td><td>All speakers</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Learner invite email</h3>
+        <p>Sent to all learners before the webinar. Shared here so IIIT Bangalore can suggest changes to wording or tone.</p>
+        <p class="lead-link">Full email: <a href="#"><span class="ph">[link]</span></a></p>
+      </section>
+
+      <!-- ===== SECTION 10: RESOURCES AND LINKS ===== -->
+      <section class="section" id="resources">
+        <div class="section-head">
+          <span class="section-no">10</span>
+          <div>
+            <h2>Resources and links</h2>
+            <p>Platforms, programme documents and support contacts for learners and faculty.</p>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <h3>Learner platforms</h3>
+            <ul class="ruled">
+              <li><b>Learning platform:</b> <a href="https://www.upgrad.com/lxp/">upgrad.com/lxp</a></li>
+              <li><b>Mobile app:</b> iOS and Android</li>
+              <li><b>Discussion forum:</b> inside the learning platform</li>
+              <li><b>Cohort group:</b> <span class="ph">[how learners join; keep invite links off this page]</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Programme documents</h3>
+            <ul class="ruled">
+              <li><b>Student manual:</b> <a href="#"><span class="ph">[link]</span></a></li>
+              <li><b>Onboarding script:</b> <a href="#"><span class="ph">[link]</span></a></li>
+              <li><b>Programme calendar:</b> <a href="#"><span class="ph">[link]</span></a></li>
+              <li><b>Welcome email:</b> see section 09</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">
+          <p>Learners should finish the welcome and preparatory modules by <span class="ph">[date]</span>, before live sessions begin on <span class="ph">[date]</span>.</p>
+        </div>
+      </section>
+
+      <!-- ===== FOOTER ===== -->
+      <footer>
+        <p>IIIT Bangalore × upGrad, <span class="ph">[Programme name]</span></p>
+        <p>Student support: <a href="mailto:studentsupport@upgrad.com">studentsupport@upgrad.com</a>, <a href="tel:18002102020">1800-210-2020</a> (toll free)</p>
+        <p>Prepared by upGrad Education Pvt. Ltd., <span class="ph">[Month Year]</span></p>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<script>
+// Light and dark mode button
+const root = document.documentElement;
+const themeBtn = document.getElementById('themeBtn');
+function currentTheme() {
+  if (root.dataset.theme) return root.dataset.theme;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function labelThemeButton() {
+  themeBtn.textContent = currentTheme() === 'dark' ? 'Switch to light' : 'Switch to dark';
+}
+themeBtn.addEventListener('click', function () {
+  root.dataset.theme = currentTheme() === 'dark' ? 'light' : 'dark';
+  labelThemeButton();
+});
+labelThemeButton();
+
+// Phone menu: open and close the side menu
+const sidebar = document.getElementById('sidebar');
+const menuBtn = document.getElementById('menuBtn');
+function closeMenu() {
+  sidebar.classList.remove('is-open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}
+menuBtn.addEventListener('click', function () {
+  const isOpen = sidebar.classList.toggle('is-open');
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+});
+sidebar.querySelectorAll('a[href^="#"]').forEach(function (link) {
+  link.addEventListener('click', closeMenu);
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+// Highlight the section you are reading in the side menu
+const navLinks = Array.from(document.querySelectorAll('.nav a[href^="#"]'));
+const observer = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach(function (link) {
+      link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
+    });
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+document.querySelectorAll('main header[id], main section[id]').forEach(function (el) { observer.observe(el); });
+</script>
+</body>
+</html>
